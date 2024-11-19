@@ -1,0 +1,147 @@
+
+
+// L'encapsulation
+L'encapsulation est l'un des principes fondamentaux de la programmation orientée objet (OOP). Elle consiste à regrouper des données (attributs) et des comportements (méthodes) dans une même entité appelée classe, tout en contrôlant l'accès à ces données pour protéger leur intégrité.
+
+class Person {
+    #name
+    #age
+    constructor(name, age) {
+      this.#name = name
+      this.#age = age
+    }
+  
+    getName = () => console.log(this.#name)
+    getAge=()=> console.log(this.#age)  
+  
+    setName=(a)=> this.#name = a 
+    setAge=(a)=> this.#age = a  
+  
+  }
+  
+  var user = new Person("Hadir", 99)
+  
+  // console.log(user.name)
+  user.getName()
+  user.getAge()
+  user.setName('Yesser')
+  user.getName()
+  user.setAge(9)
+  user.getAge()
+
+
+  function Person(name,age){
+    let myName = name
+    let myAge = age 
+  
+    this.getName=()=> console.log(myName)
+    this.getAge=()=> console.log(myAge)
+  }
+  
+  var user = new Person('Rania',22)
+  
+  user.getName()
+  user.getAge()
+
+//   L'héritage
+L'héritage est un autre principe fondamental de la programmation orientée objet (OOP). Il permet de créer une nouvelle classe à partir d'une classe existante, en réutilisant ses propriétés et méthodes, tout en pouvant ajouter ou modifier des fonctionnalités.
+
+C’est un mécanisme clé pour favoriser la réutilisation du code et structurer les applications logiquement.
+
+class Animal{
+    name
+    age
+  
+    constructor(name,age){
+      this.name = name
+      this.age = age
+    }
+  
+    makeSound=()=> console.log('grrrrr')
+  }
+  
+  class Dog extends Animal{
+    pattes
+  
+    constructor(name,age,pattes){
+      super(name,age)
+  
+      this.pattes = pattes
+    }
+  }
+  
+  var kalb = new Dog('Hamdi',10,900)
+  
+  
+  
+  kalb.makeSound()
+
+// Polymorphisme
+Le polymorphisme est un concept clé de la programmation orientée objet (OOP). Il permet à une méthode, une fonction ou un objet d'avoir plusieurs formes, en fonction du contexte dans lequel il est utilisé.
+
+Ce principe améliore la flexibilité et la maintenabilité du code en permettant d'écrire des programmes génériques capables de s'adapter à différents types d’objets.
+
+
+
+class Vehicule{
+    pneu
+    puissance
+  
+    constructor(pneu,puissance){
+      this.pneu = pneu
+      this.puissance = puissance
+    }
+  
+    vehiculeSound=()=> console.log("vromvrom")
+  }
+  
+  class car extends Vehicule{
+    toit
+  
+    constructor(pneu,puissance,toit){
+      super(pneu,puissance)
+      this.toit = toit
+    }
+  
+    vehiculeSound=()=> console.log('vinvin')
+  }
+  
+  class Lorry extends Vehicule{
+  
+    quantity
+  
+    constructor(pneu,puissance,quantity){
+      super(pneu,puissance)
+      this.quantity = quantity
+    }
+    
+  }
+  
+  var karhba = new car(3,4,true)
+  
+  var kamyoun = new Lorry(4,9,70)
+  
+  karhba.vehiculeSound()
+  kamyoun.vehiculeSound()
+  
+
+//   Protoype  
+ Le prototype est un concept clé en programmation, notamment en JavaScript, où il représente un mécanisme pour la création et le partage de propriétés et de méthodes entre les objets. Contrairement à d'autres langages orientés objet qui reposent sur des classes, JavaScript utilise un modèle basé sur des prototypes pour l'héritage.
+
+class Person{
+  name
+  age
+
+  constructor(name,age){
+    this.name = name
+    this.age = age
+  }
+}
+
+Person.prototype.Saluer = function(){
+  console.log(`Hello my name is ${this.name} and i am ${this.age}`)
+}
+
+var user = new Person('Rahme',22)
+
+user.Saluer()
